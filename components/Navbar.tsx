@@ -19,7 +19,6 @@ const Navbar = () => {
     { name: 'about', path: '/about', icon: <FiUser /> },
     { name: 'skills', path: '/skills', icon: <FiCode /> },
     { name: 'projects', path: '/projects', icon: <FiBriefcase /> },
-    { name: 'posts', path: '/posts', icon: <FiBriefcase /> },
     { name: 'services', path: '/services', icon: <FiServer /> },
     { name: 'contact', path: '/contact', icon: <FiMail /> },
   ];

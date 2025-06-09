@@ -1,7 +1,7 @@
-import prisma from "@/lib/prisma";
+import { fetchProjects } from "@/app/service/get";
 
 export default async function Projects() {
-  const projects = await prisma.project.findMany();
+  const projects = await fetchProjects();
 
   return (
     <section className="section">

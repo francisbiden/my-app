@@ -1,17 +1,17 @@
-import prisma from "@/lib/prisma";
+import { fetchServices } from "@/app/service/get";
 
 export default async function Services() {
-  const services = await prisma.service.findMany();
+  const services = await fetchServices();
 
   return (
     <section className="section">
-      <h2 className="section-title">What I Offer</h2>
+      <h2 className="section-title">Offered Services</h2>
       <div className="grid">
         {services.map((service) => (
-          <div key={service.id} className="service-card">
-            <div className="service-icon">{service.icon}</div>
-            <h3 className="service-title">{service.title}</h3>
-            <p className="service-description">{service.description}</p>
+          <div key={service.id} className="card">
+            <h3 className="card-title">{service.name}</h3>
+            <p className="card-description">{service.description}</p>
+            <p className="card-price">${service.price}</p>
           </div>
         ))}
       </div>
