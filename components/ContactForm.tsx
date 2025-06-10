@@ -1,4 +1,5 @@
 // ContactForm.tsx
+"use client"
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import 'react-phone-number-input/style.css';

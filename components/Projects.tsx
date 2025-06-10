@@ -1,3 +1,4 @@
+"use client"
 import { fetchProjects } from "@/app/service/get";
 
 export default async function Projects() {

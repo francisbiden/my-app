@@ -1,0 +1,287 @@
+// Variables
+$primary-color: #3f51b5; // Purple/blue
+$secondary-color: #00bcd4; // Cyan
+$accent-color: #ff5722; // Deep orange
+$text-color: #2d3748;
+$light-gray: #f7fafc;
+$medium-gray: #e2e8f0;
+$dark-gray: #4a5568;
+$border-radius: 12px;
+$box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$transition-speed: 0.3s;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin gradient-text {
+  background: linear-gradient(90deg, $primary-color, $secondary-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.about-me-section {
+  padding: 5rem 1rem;
+  background-color: $light-gray;
+  color: $text-color;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba($primary-color, 0.03) 0%, rgba($secondary-color, 0.03) 100%);
+    z-index: 0;
+  }
+}
+
+.about-me-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+  
+  @media (min-width: 992px) {
+    grid-template-columns: 1fr 1.5fr;
+    align-items: flex-start;
+  }
+}
+
+.profile-photo-container {
+  position: relative;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $box-shadow;
+  transition: transform $transition-speed;
+  
+  &:hover {
+    transform: translateY(-5px);
+    
+    .photo-overlay {
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+.profile-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba($primary-color, 0.8));
+  color: white;
+  padding: 2rem 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.9;
+  transition: opacity $transition-speed;
+  
+  span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    
+    &:last-child {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.about-me-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  
+  .title-highlight {
+    @include gradient-text;
+    font-weight: 700;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, $primary-color, $secondary-color);
+    border-radius: 2px;
+  }
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: $dark-gray;
+  
+  .highlight {
+    font-weight: 600;
+    color: $primary-color;
+  }
+}
+
+.bio-section, .blockchain-focus {
+  .bio-title, .focus-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    @include gradient-text;
+  }
+  
+  .bio-text, .focus-text {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: $dark-gray;
+    
+    .highlight {
+      font-weight: 600;
+      color: $accent-color;
+    }
+  }
+}
+
+.blockchain-focus {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  
+  .focus-list {
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    
+    li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      line-height: 1.6;
+      
+      &::before {
+        content: '▹';
+        position: absolute;
+        left: -1.5rem;
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+.skills-section {
+  .skills-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    @include gradient-text;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .skill-category {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    transition: transform $transition-speed;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .category-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: $primary-color;
+    font-weight: 600;
+    border-bottom: 2px solid $medium-gray;
+    padding-bottom: 0.5rem;
+  }
+  
+  .skill-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .skill-item {
+    margin-bottom: 0.7rem;
+    position: relative;
+    padding-left: 1.2rem;
+    
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: $secondary-color;
+      font-weight: bold;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 767px) {
+  .about-me-section {
+    padding: 3rem 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .intro-text {
+    font-size: 1.1rem;
+  }
+  
+  .bio-title, .focus-title, .skills-title {
+    font-size: 1.4rem !important;
+  }
+}
