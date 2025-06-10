@@ -1,4 +1,4 @@
-import { FaEnvelope, FaPhoneAlt, FaGithub, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt, FaGithub, FaLinkedin, FaTwitter,  FaFacebook} from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -28,25 +28,25 @@ const Footer = () => {
         <div className="footer-column">
           <h3 className="footer-title">Contact</h3>
           <p className="footer-text"><FaEnvelope className="footer-icon" /> francis@example.com</p>
-          <p className="footer-text"><FaPhoneAlt className="footer-icon" /> +254 712 345 678</p>
+          <p className="footer-text"><FaPhoneAlt className="footer-icon" /> +254 783789380</p>
         </div>
 
         {/* Socials */}
         <div className="footer-column">
           <h3 className="footer-title">Follow Me</h3>
           <div className="footer-socials">
-            <a href="https://github.com/yourhandle" target="_blank" className="footer-social" aria-label="GitHub">
+            <a href="https://github.com/francisbiden" target="_blank" className="footer-social" aria-label="GitHub">
               <FaGithub />
             </a>
             <a href="https://linkedin.com/in/yourprofile" target="_blank" className="footer-social" aria-label="LinkedIn">
               <FaLinkedin />
             </a>
-            <a href="https://twitter.com/yourhandle" target="_blank" className="footer-social" aria-label="Twitter">
+            <a href="https://x.com/FMuiruri97962" target="_blank" className="footer-social" aria-label="Twitter">
               <FaTwitter />
             </a>
-            <a href="https://youtube.com/yourchannel" target="_blank" className="footer-social" aria-label="YouTube">
-              <FaYoutube />
-            </a>
+            <a href="https://www.facebook.com/francis.muiruri.988926" target="_blank" rel="noopener noreferrer">
+                    <FaFacebook className="social" />
+                  </a>
           </div>
         </div>
       </div>

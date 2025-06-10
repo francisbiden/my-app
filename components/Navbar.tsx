@@ -12,7 +12,7 @@ type NavItem = {
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('');
 
   const navItems: NavItem[] = [
     { name: 'home', path: '/', icon: <FiHome /> },
