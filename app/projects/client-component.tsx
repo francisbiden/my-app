@@ -4,6 +4,7 @@
 import { use } from "react";
 import { Suspense } from "react";
 
+
 export default function ProjectsClientComponent({ projectsPromise }) {
   // Use the use hook to unwrap the promise
   const projects = use(projectsPromise);
