@@ -31,7 +31,7 @@ const AboutMe: React.FC = () => {
           </h2>
           
           <p className="intro-text">
-            Hi, I'm <span className="highlight">John Doe</span>, a passionate <span className="highlight">Full Stack Developer</span> with a burning interest in blockchain technology and decentralized applications.
+            Hi, I'm <span className="highlight">Francis</span>, a passionate <span className="highlight">Full Stack Developer</span> with a burning interest in blockchain technology and decentralized applications.
           </p>
           
           <div className="bio-section">

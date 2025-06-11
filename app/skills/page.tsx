@@ -1,29 +1,13 @@
-import Skills from '@/components/Skills'
-import React from 'react'
+
+// app/skills/page.tsx
 export const metadata = {
-  title: "Skills | Technologies Used by Francis Muiruri",
+  title: "Developer skills",
   description:
     "Explore the technical skills and tools used by Francis Muiruri including React, Next.js, TypeScript, Node.js, Express, MongoDB, and SASS.",
-  keywords: [
-    "Developer skills",
-    "React skills",
-    "Node.js skills",
-    "MongoDB",
-    "PostgreSQL",
-    "Tailwind CSS",
-    "Prisma",
-    "SASS",
-  ],
+
 };
+import SkillsServerComponent from "./server-component";
 
-
-const page = () => {
-  return (
-    <>
-    <Skills />
-
-    </>
-  )
+export default function SkillsPage() {
+  return <SkillsServerComponent />;
 }
-
-export default page

@@ -1,27 +1,13 @@
 
-
-import Projects from '@/components/Projects';
-import React from 'react';
+// app/projects/page.tsx
 export const metadata = {
-  title: "Projects | Web Development by Francis Muiruri",
+  title: "Projects ",
   description:
     "View a selection of full-stack and frontend projects developed by Francis Muiruri. Each project showcases responsive design, performance, and clean code.",
-  keywords: [
-    "Web development projects",
-    "React projects",
-    "Full-stack applications",
-    "Freelance developer",
-    "Portfolio work",
-  ],
+
 };
+import ProjectsServerComponent from "./server-component";
 
-
-const page = () => {
-  return (
-    <>
-        <Projects />
-    </>
-  )
+export default function ProjectsPage() {
+  return <ProjectsServerComponent />;
 }
-
-export default page
