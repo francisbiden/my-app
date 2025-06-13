@@ -14,8 +14,14 @@ export const skillIcons = {
 } as const;
 
 export const serviceIcons = {
-  'web-design': '/icons/web-design.svg',
-  blockchain: '/icons/blockchain.svg',
+  figma: '/icons/figma.svg',
+  nextjs: '/icons/nextjs.svg',
+  nodejs: '/icons/nodejs.svg',
+  javascript: '/icons/javascript.svg',
+  graphql: '/icons/graphql.svg',
+  database: '/icons/database.svg',
+  react: '/icons/react.svg',
+  solidity: '/icons/solidity.svg',
   
 } as const;
 

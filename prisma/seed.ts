@@ -108,7 +108,7 @@ async function main() {
       {
         title: 'Frontend Development',
         description: 'Building interactive and performant user interfaces using modern JavaScript frameworks like React and Next.js. Implementing responsive designs, animations, and state management for seamless user experiences.',
-        icon: 'html5',
+        icon: 'nextjs',
       },
       {
         title: 'Backend Development',
@@ -128,7 +128,7 @@ async function main() {
       {
         title: 'Database Management',
         description: 'Designing and optimizing database schemas for performance and scalability. Implementing CRUD operations, complex queries, and data migration strategies for both SQL and NoSQL databases.',
-        icon: 'mysql',
+        icon: 'database',
       },
       {
         title: 'Mobile App Development (React Native)',
