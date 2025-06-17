@@ -4,42 +4,29 @@ A full-stack, Docker-ready Next.js portfolio site using Prisma to fetch data (Pr
 🚀 Quick Start
 Clone the repo
 
-bash
-Copy
-Edit
+
 git clone https://github.com/francisbiden/my-app.git
 cd my-app
 Create .env file
-Copy .env.example to .env and fill in your connection string:
+ .env.example to .env and fill in your connection string:
 
-bash
-Copy
-Edit
+
 cp .env.example .env
 Update .env:
 
 php-template
-Copy
-Edit
+
 DATABASE_URL=postgresql://<USER>:<PASSWORD>@<HOST>:<PORT>/<DBNAME>?sslmode=require
 Build and start with Docker Compose
 
-bash
-Copy
-Edit
+
 docker-compose up --build
 Your app will be available at http://localhost:3000.
 
 Stop and clean up containers
-
-bash
-Copy
-Edit
 docker-compose down --volumes
+
 📁 Project Structure
-text
-Copy
-Edit
 /
 ├── app/                  # Next.js routing & components
 │   ├── projects/
@@ -77,10 +64,9 @@ docker-compose exec nextjs-portfolio sh	Open shell inside container
 ✅ Environment Variables
 Make sure to create .env (never commit this file) from .env.example:
 
-perl
-Copy
-Edit
+
 DATABASE_URL=postgresql://user:password@host:port/dbname?sslmode=require
+
 🔧 Development vs Production
 Development
 Use npm run dev inside containers or locally
