@@ -1,57 +1,68 @@
-
 // app/service/get.ts
-import prisma from "@/lib/prisma"; // Your Prisma client instance
+import prisma from "@/lib/prisma";
+import type { Project, Service, Skill } from "@/types/index";
 
-export async function fetchProjects() {
+const isDatabaseConnected = Boolean(process.env.DATABASE_URL);
+
+export async function fetchProjects(): Promise<Project[]> {
+  if (!isDatabaseConnected) {
+    console.warn("DATABASE_URL not found. Returning empty project list.");
+    return [];
+  }
+
   try {
-    const projects = await prisma.project.findMany({
-      // You can add any query options here
+    return await prisma.project.findMany({
       select: {
         id: true,
         title: true,
         description: true,
-        image: true
-      }
+        image: true,
+      },
     });
-    return projects;
   } catch (error) {
     console.error("Error fetching projects:", error);
-    throw error;
+    return [];
   }
 }
 
+export async function fetchServices(): Promise<Service[]> {
+  if (!isDatabaseConnected) {
+    console.warn("DATABASE_URL not found. Returning empty service list.");
+    return [];
+  }
 
-// app/service/get.ts
-export async function fetchServices() {
   try {
-    const services = await prisma.service.findMany({
+    return await prisma.service.findMany({
       select: {
         id: true,
         title: true,
         description: true,
-        icon: true
-      }
+        icon: true,
+      },
     });
-    return services;
   } catch (error) {
     console.error("Error fetching services:", error);
-    throw error;
+    return [];
   }
 }
 
-export async function fetchSkills() {
+export async function fetchSkills(): Promise<Skill[]> {
+  if (!isDatabaseConnected) {
+    console.warn("DATABASE_URL not found. Returning empty skills list.");
+    return [];
+  }
+
   try {
-    const skills = await prisma.skill.findMany({
+    return await prisma.skill.findMany({
       select: {
         id: true,
         title: true,
         description: true,
-        icon: true
-      }
+        icon: true,
+      },
     });
-    return skills;
   } catch (error) {
     console.error("Error fetching skills:", error);
-    throw error;
+    return [];
   }
 }

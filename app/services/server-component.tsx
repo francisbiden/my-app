@@ -7,7 +7,7 @@ export default async function ServicesServerComponent() {
 
   return (
     <section className="section">
-      <h2 className="section-title">Offered Services</h2>
+      <h2 className="section-title">Our Services</h2>
       <ServicesClientComponent servicesPromise={servicesPromise} />
     </section>
   );

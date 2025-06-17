@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic"; // 👈 tells Next.js to use SSR at runtime
 
 // app/projects/page.tsx
 export const metadata = {
