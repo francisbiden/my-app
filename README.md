@@ -1,33 +1,156 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🏗️ Francis Biden's Portfolio (my-app)
+A full-stack, Docker-ready Next.js portfolio site using Prisma to fetch data (Projects, Services, Skills) from a remote Neon/Postgres database.
 
-## Getting Started
+🚀 Quick Start
+Clone the repo
 
-First, run the development server:
+bash
+Copy
+Edit
+git clone https://github.com/francisbiden/my-app.git
+cd my-app
+Create .env file
+Copy .env.example to .env and fill in your connection string:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+bash
+Copy
+Edit
+cp .env.example .env
+Update .env:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+php-template
+Copy
+Edit
+DATABASE_URL=postgresql://<USER>:<PASSWORD>@<HOST>:<PORT>/<DBNAME>?sslmode=require
+Build and start with Docker Compose
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+bash
+Copy
+Edit
+docker-compose up --build
+Your app will be available at http://localhost:3000.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Stop and clean up containers
 
-## Learn More
+bash
+Copy
+Edit
+docker-compose down --volumes
+📁 Project Structure
+text
+Copy
+Edit
+/
+├── app/                  # Next.js routing & components
+│   ├── projects/
+│   ├── services/
+│   └── skills/
+├── prisma/               # Prisma schema & client config
+├── public/               # Static assets
+├── utils/                # Shared utilities (e.g. icons)
+├── Dockerfile            # Multi-stage production build
+├── docker-compose.yml    # Service definition with env support
+├── .dockerignore         # Exclude files during Docker build
+├── .env.example          # Example environment variables
+└── package.json
+🎯 How It Works
+Next.js v15 leverages both server (SSG/SSR) and client components.
 
-To learn more about Next.js, take a look at the following resources:
+Data is fetched via custom functions (fetchProjects, fetchServices, fetchSkills) using Prisma and a remote database.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Docker setup supports multi-stage builds:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Builder stage installs dependencies, generates Prisma client, builds app.
+
+Final stage installs only production dependencies, runs next start.
+
+docker-compose.yml uses .env for runtime DATABASE_URL, avoiding exposing secrets in image build.
+
+🛠️ Useful Commands
+Command	Description
+docker-compose up --build	Build image & start container
+docker-compose down --volumes	Stop and clean up
+docker image prune -a	Remove unused Docker images
+docker-compose logs -f	Follow container logs
+docker-compose exec nextjs-portfolio sh	Open shell inside container
+
+✅ Environment Variables
+Make sure to create .env (never commit this file) from .env.example:
+
+perl
+Copy
+Edit
+DATABASE_URL=postgresql://user:password@host:port/dbname?sslmode=require
+🔧 Development vs Production
+Development
+Use npm run dev inside containers or locally
+
+Supports Hot Module Replacement (HMR)
+
+Production (Docker)
+Image uses npm start, which runs the optimized server build
+
+No live reloading—changes require rebuild + restart
+
+🧪 Troubleshooting
+Blank project/service/skills pages?
+
+Ensure DATABASE_URL is set correctly in .env
+
+Rebuild container after updating .env
+
+Docker build fails at npm run build?
+
+Make sure getStaticProps() or fetch*() functions do not run database queries at build time—unless DATABASE_URL is present (use dynamic SSR or guards).
+
+📦 Building Without Docker
+npm install
+
+npx prisma generate
+
+npm run build
+
+npm run start
+
+.env must include DATABASE_URL.
+
+⚙️ Deployment
+This Docker setup works out of the box with any VPS or container hosting like:
+
+DigitalOcean
+
+AWS EC2
+
+Railway.app
+
+Render.com
+
+You can also add GitHub Actions or use docker push to deploy to your own registry.
+
+🤝 Contributing
+Fork the repo
+
+Make changes in a new branch
+
+Run npm test, format and lint code
+
+Submit a pull request!
+
+See CONTRIBUTING.md for more details (create one accordingly).
+
+📜 License
+This project is licensed under the MIT License. See LICENSE for full details.
+
+👍 Next Steps
+Add README screenshots or live demo badges
+
+Set up CI/CD with GitHub Actions or other tools
+
+Harden Docker image (multi-stage, minimal root usage)
+
+Automate DB migrations with Prisma migrate deploy
+
+
 
 ## Deploy on Vercel
 
